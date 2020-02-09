@@ -1,0 +1,4 @@
+html/*
+mysql-db/*
+*DS_Store*
+!.gitignore
