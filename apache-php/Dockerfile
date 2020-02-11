@@ -1,5 +1,5 @@
 FROM centos:centos7
-ENV CONTAINER = laravel
+ARG CONTAINER
 
 # アップデート＆必要パッケージのインストール
 RUN rpm --import http://mirror.centos.org/centos/RPM-GPG-KEY-CentOS-7
