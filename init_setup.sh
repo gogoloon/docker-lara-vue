@@ -15,9 +15,9 @@ sed -i '' "s/\<Directory \"\/var\/www\/html\">/\<Directory \"\/var\/www\/html\/$
 sed -i '' "s/AllowOverride None/AllowOverride All/" ./apache-php/httpd.conf
 
 # Change laravel .env file to setting Database
-docker exec -it $COMPOSE_PROJECT_NAME /bin/bash -c "cd /var/www/html/$COMPOSE_PROJECT_NAME; sed -i '' \"s/DB_HOST=\(.*\)/DB_HOST=mysql/g\" .env"
-docker exec -it $COMPOSE_PROJECT_NAME /bin/bash -c "cd /var/www/html/$COMPOSE_PROJECT_NAME; sed -i '' \"s/DB_DATABASE=\(.*\)/DB_DATABASE=$COMPOSE_PROJECT_NAME/g\" .env"
-docker exec -it $COMPOSE_PROJECT_NAME /bin/bash -c "cd /var/www/html/$COMPOSE_PROJECT_NAME; sed -i '' \"s/DB_PASSWORD=\(.*\)/DB_PASSWORD=$PASSWORD/g\" .env"
+docker exec -it $COMPOSE_PROJECT_NAME /bin/bash -c "cd /var/www/html/$COMPOSE_PROJECT_NAME; sed -i  \"s/DB_HOST=\(.*\)/DB_HOST=mysql/g\" .env"
+docker exec -it $COMPOSE_PROJECT_NAME /bin/bash -c "cd /var/www/html/$COMPOSE_PROJECT_NAME; sed -i  \"s/DB_DATABASE=\(.*\)/DB_DATABASE=$COMPOSE_PROJECT_NAME/g\" .env"
+docker exec -it $COMPOSE_PROJECT_NAME /bin/bash -c "cd /var/www/html/$COMPOSE_PROJECT_NAME; sed -i  \"s/DB_PASSWORD=\(.*\)/DB_PASSWORD=$PASSWORD/g\" .env"
 
 # Execute laravel migrate
 docker exec -it $COMPOSE_PROJECT_NAME /bin/bash -c "cd /var/www/html/$COMPOSE_PROJECT_NAME; php artisan migrate"
