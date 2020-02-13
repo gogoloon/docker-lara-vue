@@ -7,7 +7,7 @@ Create three containers.
  1. Apache + php (laravel + vue.js)
  1. Mysql
  1. PhpMyAdmin
- 2. 
+
 # Envroiment
 
 ``` plantuml
