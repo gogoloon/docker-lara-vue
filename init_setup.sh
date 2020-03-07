@@ -6,7 +6,7 @@
 # Create laravel project and setup vue.js
 docker exec -it $COMPOSE_PROJECT_NAME composer create-project "laravel/laravel=6.0.*" $COMPOSE_PROJECT_NAME
 docker exec -it $COMPOSE_PROJECT_NAME /bin/bash -c "cd /var/www/html/$COMPOSE_PROJECT_NAME; chmod -R 777 ./storage; chmod -R 777 ./bootstrap/cache/"
-docker exec -it $COMPOSE_PROJECT_NAME /bin/bash -c "cd /var/www/html/$COMPOSE_PROJECT_NAME; composer require laravel/ui ;php artisan ui vue --auth; npm install; npm run dev"
+docker exec -it $COMPOSE_PROJECT_NAME /bin/bash -c "cd /var/www/html/$COMPOSE_PROJECT_NAME; composer require laravel/ui=1.* ;php artisan ui vue --auth; npm install; npm run dev"
 
 # Change httpd.conf 
 cp ./apache-php/httpd.conf.ori ./apache-php/httpd.conf
@@ -38,4 +38,3 @@ echo " - DB port : $PORT_DB"
 echo " - DB name : $COMPOSE_PROJECT_NAME"
 echo " - DB root password : $PASSWORD"
 echo "-------------------------------------"
-
